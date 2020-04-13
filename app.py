@@ -38,16 +38,19 @@ def fibo(x):
         input = x,
         output = fib(x)
         )
-def fib(n):
+
+def calcfib(n):
     if n < 0 :
-        print ("Error, input needs to be positive.")   
-    else:
-        a, b = 0, 1
-        array = [0]
-        while b <= n:
-            array.append(b)
-            a, b = b, a+b   
-    return array
+
+        print ("Error, input has to be a positive integer")
+
+    elif n > 0:
+        b, a = 0, 1
+                            # b, a initialized as F(0), F(1)
+        for i in range(1,n) :
+            b, a = a, a+b       # b, a always store F(i-1), F(i) 
+    return a
+
 
 @app.route('/is-prime/<int:x>')
 def prime(x):
